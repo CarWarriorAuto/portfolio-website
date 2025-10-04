@@ -5,36 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Erico's Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
- <!-- Top Navigation -->
-<header>
-  <nav class="top-nav">
-    <div class="logo">Erico</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Portfolio</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
 
+  <!-- Top Navigation -->
+  <header>
+    <nav class="top-nav">
+      <div class="logo">Erico</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <div class="container hero-container">
-    <div class="hero-left">
-      <img src="erico-photo.jpg" alt="Erico's Photo">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-left">
+        <img src="erico-photo.jpg" alt="Erico's Photo">
+      </div>
+      <div class="hero-right">
+        <h3>Hello, It's me</h3>
+        <h1>Eric M</h1>
+        <h2>And I'm a <span>Frontend Developer</span></h2>
+        <p>
+          I see web development as an art form where every line of code and design choice
+          works together to create something unique. I’m always exploring new ways to make
+          the web more vibrant, creative, and user-friendly.
+        </p>
+      </div>
     </div>
-    <div class="hero-right">
-      <h3>Hello, It's me</h3>
-      <h1>Eric M</h1>
-      <h2>And I'm a <span>Frontend Developer</span></h2>
-      <p>I see web development as an art form where every line of code and design choice works together to create something unique. I’m always exploring new ways to make the web more vibrant, creative, and user-friendly.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I’m Erico, a Frontend Developer and graphic designer who loves creating modern,
+        responsive, and user-friendly websites.
+        <br><br>
+        After completing my diploma in ICT, I’ve dedicated my time to building real projects,
+        sharpening my coding skills, and exploring new design trends.
+        <br><br>
+        I enjoy blending creativity and logic to turn ideas into digital experiences that are both functional and visually appealing.
+        My goal is to keep growing as a developer while helping individuals and businesses bring their visions to life through the web.
+      </p>
+    </div>
+  </section>
+
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill">
+      <img src="icons/html-file.png" alt="HTML Icon">
+      <p>HTML</p>
+      <div class="bar"><div class="progress" data-skill="90">90%</div></div>
+    </div>
+    <div class="skill">
+      <img src="icons/browser-css.png" alt="CSS Icon">
+      <p>CSS</p>
+      <div class="bar"><div class="progress" data-skill="85">85%</div></div>
+    </div>
+    <div class="skill">
+      <img src="icons/javascript.png" alt="JavaScript Icon">
+      <p>JavaScript</p>
+      <div class="bar"><div class="progress" data-skill="70">70%</div></div>
+    </div>
+    <div class="skill">
+      <img src="icons/photoshop-express.png" alt="Photoshop Icon">
+      <p>Graphic Design (Photoshop)</p>
+      <div class="bar"><div class="progress" data-skill="80">80%</div></div>
+    </div>
+    <div class="skill">
+      <img src="icons/it.png" alt="ICT Icon">
+      <p>ICT Support & Troubleshooting</p>
+      <div class="bar"><div class="progress" data-skill="75">75%</div></div>
     </div>
   </div>
 </section>
@@ -42,71 +95,93 @@
 
 
 
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am currently pursuing a diploma in ICT at Meru National Polytechnic.  
-        I love web development, graphic design, and exploring new technology.  
-        My goal is to build user-friendly and visually stunning digital products.
-      </p>
-    </section>
+ <!-- Projects Section -->
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="projects-grid">
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <h2>My Skills</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Graphic Design (Photoshop, Illustrator)</li>
-        <li>ICT Support & Troubleshooting</li>
-      </ul>
-    </section>
-
-    <!-- Portfolio / Projects Section -->
-    <section id="projects">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Portfolio Website</h3>
-          <p>A personal portfolio site built with HTML, CSS, and JavaScript.</p>
-        </div>
-        <div class="project-card">
-          <h3>Graphic Design Works</h3>
-          <p>Logos, posters, and banners created for different clients.</p>
-        </div>
-        <div class="project-card">
-          <h3>ICT Assignments</h3>
-          <p>Practical ICT projects and coding exercises completed in class.</p>
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/portfolio.jpg" alt="Portfolio Website">
+        <div class="overlay">
+          <a href="#" class="btn" target="_blank">View Project</a>
         </div>
       </div>
-    </section>
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio site built with HTML, CSS, and JavaScript.</p>
+    </div>
 
-    <!-- Services Section -->
-    <section id="services">
-      <h2>Services</h2>
-      <ul>
-        <li>Web Design</li>
-        <li>Graphic Design</li>
-        <li>ICT Consultation</li>
-      </ul>
-    </section>
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/graphic.jpg" alt="Graphic Design Works">
+        <div class="overlay">
+          <a href="#" class="btn" target="_blank">View Designs</a>
+        </div>
+      </div>
+      <h3>Graphic Design Works</h3>
+      <p>Logos, posters, and banners created for different clients.</p>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/ict.jpg" alt="ICT Assignments">
+        <div class="overlay">
+          <a href="#" class="btn" target="_blank">View Work</a>
+        </div>
+      </div>
+      <h3>ICT Assignments</h3>
+      <p>Practical ICT projects and coding exercises completed in class.</p>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 Erico Muthuri. All Rights Reserved.</p>
-    </footer>
   </div>
+</section>
+
+
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>Web Design</li>
+      <li>Graphic Design</li>
+      <li>ICT Consultation</li>
+    </ul>
+  </section>
+
+ <section id="contact">
+    
+    <div class="contact-content-wrapper">
+        
+        <form class="contact-card"> 
+            <h2>Contact Me</h2> 
+            
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="social-links">
+            <a href="https://linkedin.com/in/yourusername" class="linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourusername" class="github" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/yourusername" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/yourusername" class="facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/2547XXXXXXXX" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+    </div>
+     <!-- CV Download Section (cv) -->
+    <div class="cv-download">
+        <p>Prefer to read instead? 
+           <a href="cv/Erico_CV.pdf" class="btn" download>Download My CV</a>
+        </p>
+    </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Erico Muthuri. All Rights Reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

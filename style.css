@@ -5,33 +5,33 @@
   box-sizing: border-box;
 }
 
-/* Main Content */
-.main-content {
-  margin-left: 240px; /* space for sidebar */
-  padding: 20px;
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+  padding-top: 70px; /* makes sure sections are not hidden under nav */
 }
 
-section {
-  margin: 50px 0;
-  padding: 20px;
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Top Navigation (Right Aligned) */
+/* Top Navigation */
 .top-nav {
   background: #111;
   padding: 15px 40px;
-  position: fixed;      /* stays at top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between; /* logo left, links right */
+  justify-content: space-between;
   align-items: center;
   z-index: 1000;
 }
@@ -59,58 +59,18 @@ section {
   color: #ff9800;
 }
 
-/* Highlight active link */
 .top-nav ul li a.active {
   color: #00bcd4;
   font-weight: bold;
 }
 
-/* Push content below nav */
-body {
-  padding-top: 70px; /* makes sure sections are not hidden under the nav */
-}
-.hero-text h3 {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #222;
-}
-
-.hero-text h2 {
-  font-size: 2rem;
-  margin: 10px 0;
-}
-
-.hero-text h2 span {
-  color: #ff6600; /* highlight job title */
-  font-weight: bold;
-}
-
-.hero-text p {
-  margin-top: 15px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #444;
-}
-/* General container for centered content */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;   /* centers horizontally */
-  padding: 0 20px;  /* small spacing on sides */
-  text-align: center;
-}
-
-/* Hero section layout */
+/* Hero Section */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 90vh;      /* almost full screen */
-  background: #f9f9f9;
+  min-height: 90vh;
+  background: linear-gradient(to right, #FF6600 0%, #FF6600 50%, #ffffff 100%);
 }
 
 .hero-container {
@@ -121,9 +81,17 @@ body {
 }
 
 .hero-left img {
-  width: 280px;
-  height: auto;
-  border-radius: 12px;   /* optional */
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-left img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .hero-right h3 {
@@ -143,7 +111,7 @@ body {
 }
 
 .hero-right h2 span {
-  color: #ff6600;
+  color: hsl(236, 100%, 52%);
   font-weight: bold;
 }
 
@@ -155,38 +123,383 @@ body {
   max-width: 500px;
 }
 
-/* Responsive: stack photo on top for mobile */
-@media (max-width: 768px) {
-  .hero-container {
+/* About Section */
+#about h2 {
+  font-size: 2.5rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #FF6600;
+  margin: 10px auto 40px auto;
+  border-radius: 2px;
+}
+
+#about p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* --- SKILLS SECTION --- */
+#skills {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+#skills h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+}
+
+.skill img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.skill p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Progress bar container */
+.bar {
+  width: 100%;
+  height: 14px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6600, #ff9800);
+  text-align: right;
+  padding-right: 5px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 14px;
+  border-radius: 10px 0 0 10px;
+  transition: width 1s ease;   /* smooth animation */
+  width: 0; /* start hidden */
+}
+/* ------------------ CONTACT SECTION STYLES ------------------ */
+#contact {
+    background: #f5f7fa;
+    padding: 80px 20px;
+    text-align: center; /* Ensures <h2> is centered */
+    /* Remove 'display: flex' from #contact here! We use it on the wrapper below. */
+}
+
+/* This is the new wrapper for the left/right content */
+.contact-content-wrapper {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    /* Default: Stacked on small screens */
+    display: flex;
+    flex-direction: column; 
+    gap: 40px; /* Space between form and icons when stacked */
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    color: #222;
+    text-align: center; 
+    /* REDUCED MARGIN for less space below the heading (20px -> 10px) */
+    margin-bottom: 10px; 
+}
+/* Existing Form and Input Styles (kept mostly the same, adjusted for width) */
+#contact form {
+    display: flex;
     flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-left img {
-    margin-bottom: 20px;
-  }
+    gap: 15px;
+    width: 100%; /* Full width on mobile/default */
 }
-.hero-left img {
-  width: 280px;
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    /* REDUCED vertical padding (14px -> 10px) */
+    padding: 10px 16px; 
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    /* CHANGED background to white */
+    background: #fff; 
+    transition: 0.3s ease;
+}
+/* ... (rest of your input/button styles follow here, unchanged) ... */
+
+#contact textarea { min-height: 140px; resize: none; }
+
+#contact button {
+    /* CHANGED TO ORANGE THEME COLOR */
+    background: linear-gradient(135deg, #FF6600, #ff9800);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#contact button:hover {
+    transform: translateY(-2px);
+    /* Hover state for the new orange color */
+    background: linear-gradient(135deg, #e05c00, #e67e22); 
+}
+
+
+/* Social Links (Stacked on mobile, centered) */
+.social-links {
+    display: flex;
+    justify-content: center; /* Center them on mobile/default */
+    gap: 20px;
+    /* On mobile, they are full width and centered */
+    width: 100%; 
+}
+
+.social-links a {
+    font-size: 2rem;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.social-links .linkedin { color: #0077b5; } 
+.social-links .github { color: #000; } 
+.social-links .instagram { color: #e4405f; } 
+.social-links .facebook { color: #1877f2; } 
+.social-links .whatsapp { color: #25d366; } 
+
+/* ------------------ LEFT/RIGHT LAYOUT MEDIA QUERY (768px+) ------------------ */
+
+@media (min-width: 768px) {
+    
+    /* 1. Make the wrapper display the form and icons side-by-side */
+    .contact-content-wrapper {
+        flex-direction: row; /* Switch from column (stacked) to row (side-by-side) */
+        justify-content: space-between;
+        align-items: flex-start; /* Align content to the top */
+        gap: 40px; /* Space between the two columns */
+        padding-top: 20px; /* Add some space below the main H2 */
+    }
+
+    /* 2. Style the form (the LEFT side) */
+    #contact form {
+        width: 65%; /* Form takes up most of the space on the left */
+        text-align: left; 
+    }
+
+    /* 3. Style the social links (the RIGHT side) */
+    .social-links {
+        width: 35%; /* Icons take the remaining space on the right */
+        justify-content: flex-end; /* Push icons to the right edge */
+        flex-direction: column; /* Stack the icons vertically */
+        align-items: flex-end; /* Align the stack to the right */
+        gap: 30px; /* Increased vertical gap */
+        
+        /* Ensure each icon link is full-width to control its right-alignment */
+        padding-top: 10px; /* Small adjustment for vertical alignment with form */
+    }
+/* Styling for the Contact Form Card */
+.contact-card {
+    /* REDUCED PADDING for a smaller size (30px 25px -> 25px 20px) */
+    padding: 25px 20px; 
+    border-radius: 16px; 
+    background: #ffffff; /* Keeping a crisp white background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Slightly better shadow */
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Button (The Main Color Change) */
+#contact button {
+    /* CHANGED to your portfolio's orange theme color */
+    background: linear-gradient(135deg, #FF6600, #ff9800);
+    /* ... other button styles ... */
+}
+
+#contact button:hover {
+    /* Hover state for the new orange color */
+    background: linear-gradient(135deg, #e05c00, #e67e22); 
+}
+/* Projects Section */
+#projects {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.project-card .btn {
+  display: inline-block;
+  padding: 8px 15px;
+  background: linear-gradient(135deg, #FF6600, #ff9800);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.project-card .btn:hover {
+  background: linear-gradient(135deg, #e05c00, #e67e22);
+}
+
+/* --- Overlay Hover Effect for Project Images --- */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image {
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1); /* zoom effect */
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .btn {
+  padding: 10px 20px;
+  background: #ff6600;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.overlay .btn:hover {
+  background: #e05c00;
+}
+.cv-download .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);  /* pink → orange gradient */
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero-left img:hover {
-  transform: translateY(-10px); /* lift up */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* deeper shadow */
-}
-.hero-left img {
-  width: 320px;          /* bigger size */
-  height: 320px;         /* keep it square for a perfect circle */
-  object-fit: cover;     /* ensures image scales properly */
-  border-radius: 50%;    /* makes it a circle */
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-left img:hover {
-  transform: translateY(-10px);  /* lift up */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.cv-download .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
