@@ -1,122 +1,192 @@
-/* Reset */
+/* Reset default margins */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* General styles */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f9f9f9;
-}
-
-header {
-  background: #222;
-  color: #fff;
-  padding: 20px 0;
-}
-
-header .container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: #ff9800;
-}
-
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-  background: #eee;
-}
-
-.hero img {
-  width: 250px;        /* adjust size here */
-  height: auto;        /* keeps the natural ratio */
-  object-fit: cover;   /* makes sure it doesn’t stretch */
-  border-radius: 0;    /* 0 = no rounding (normal rectangle/square) */
-  border: 3px solid #333; /* optional border */
-  margin-bottom: 15px; /* space below the image */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;  /* centers the photo */
-}
-
-}
-
-}
-
-.hero h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+/* Main Content */
+.main-content {
+  margin-left: 240px; /* space for sidebar */
+  padding: 20px;
 }
 
 section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.project-card {
-  background: #fff;
+  margin: 50px 0;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
-form input, form textarea, form button {
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Top Navigation (Right Aligned) */
+.top-nav {
+  background: #111;
+  padding: 15px 40px;
+  position: fixed;      /* stays at top */
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  display: flex;
+  justify-content: space-between; /* logo left, links right */
+  align-items: center;
+  z-index: 1000;
 }
 
-form button {
-  background: #222;
+.top-nav .logo {
   color: #fff;
-  border: none;
-  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-form button:hover {
-  background: #ff9800;
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
 }
 
-footer {
-  background: #222;
+.top-nav ul li a {
   color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.top-nav ul li a:hover {
+  color: #ff9800;
+}
+
+/* Highlight active link */
+.top-nav ul li a.active {
+  color: #00bcd4;
+  font-weight: bold;
+}
+
+/* Push content below nav */
+body {
+  padding-top: 70px; /* makes sure sections are not hidden under the nav */
+}
+.hero-text h3 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.hero-text h2 span {
+  color: #ff6600; /* highlight job title */
+  font-weight: bold;
+}
+
+.hero-text p {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+/* General container for centered content */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;   /* centers horizontally */
+  padding: 0 20px;  /* small spacing on sides */
   text-align: center;
-  padding: 15px;
-  margin-top: 20px;
-}
-.banner {
-  width: 100%;
-  overflow: hidden;
 }
 
-.banner-img {
-  width: 100%;
+/* Hero section layout */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;      /* almost full screen */
+  background: #f9f9f9;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-left img {
+  width: 280px;
   height: auto;
-  display: block;
+  border-radius: 12px;   /* optional */
 }
 
+.hero-right h3 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.hero-right h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.hero-right h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.hero-right h2 span {
+  color: #ff6600;
+  font-weight: bold;
+}
+
+.hero-right p {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 500px;
+}
+
+/* Responsive: stack photo on top for mobile */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left img {
+    margin-bottom: 20px;
+  }
+}
+.hero-left img {
+  width: 280px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-left img:hover {
+  transform: translateY(-10px); /* lift up */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* deeper shadow */
+}
+.hero-left img {
+  width: 320px;          /* bigger size */
+  height: 320px;         /* keep it square for a perfect circle */
+  object-fit: cover;     /* ensures image scales properly */
+  border-radius: 50%;    /* makes it a circle */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-left img:hover {
+  transform: translateY(-10px);  /* lift up */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
