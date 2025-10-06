@@ -63,6 +63,20 @@ body {
   color: #00bcd4;
   font-weight: bold;
 }
+/* ---------- HAMBURGER MENU ---------- */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+#nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  transition: max-height 0.3s ease;
+}
 
 /* Hero Section */
 .hero {
@@ -502,4 +516,44 @@ body {
 .cv-download .btn:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* --- RESPONSIVE FIXES FOR MOBILE --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  /* 👇 Add this here */
+  .top-nav ul {
+    display: none;
+  }
+
+  .top-nav {
+    flex-wrap: wrap;
+  }
+
+  #nav-links {
+    width: 100%;
+    flex-direction: column;
+    background: #111;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+  }
+
+  #nav-links.active {
+    max-height: 400px;
+    padding: 15px 0;
+  }
+
+  #nav-links li {
+    margin: 10px 0;
+  }
+
+  #nav-links a {
+    display: block;
+    padding: 10px;
+    font-size: 1.1rem;
+  }
 }

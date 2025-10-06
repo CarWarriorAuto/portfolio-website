@@ -5,25 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Erico's Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-Kt4vkuPZ8oI+fMo8jVgYoYvXb4Y+P4T4U3bqP+eE1F8H8O5WlVcbE1hT9lfhU28vZqH8GjWYrLr9f2yO1mL5xg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 
 </head>
 <body>
 
   <!-- Top Navigation -->
   <header>
-    <nav class="top-nav">
-      <div class="logo">Erico</div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="top-nav">
+    <div class="logo">Erico</div>
+
+    <!-- Hamburger Menu Icon -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <!-- Hero Section -->
   <section id="home" class="hero">
@@ -179,10 +193,23 @@
 </section>
 
   <!-- Footer -->
-  <footer>
+   <footer>
     <p>© 2025 Erico Muthuri. All Rights Reserved.</p>
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+  </script>
 </body>
 </html>
+
