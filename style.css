@@ -1,290 +1,450 @@
-/* Reset default margins */
+/* style.css */
+
+/* --- General Reset & Base Styles (Keep as is) --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* General styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f9f9f9;
-  padding-top: 70px; /* makes sure sections are not hidden under nav */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f9f9f9;
+    padding-top: 70px; /* makes sure sections are not hidden under nav */
 }
 
-/* Container */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px; /* Good default padding */
+    text-align: center;
 }
 
-/* Top Navigation */
+
+/* --- Top Navigation --- */
 .top-nav {
-  background: #111;
-  padding: 15px 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
+    background: #111;
+    padding: 15px 40px; /* Adjust padding for desktop if needed, or keep for consistency */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
 }
 
 .top-nav .logo {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .top-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
+    list-style: none;
+    display: flex; /* Default for desktop */
+    gap: 25px;
 }
 
 .top-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
 .top-nav ul li a:hover {
-  color: #ff9800;
+    color: #ff9800;
 }
 
 .top-nav ul li a.active {
-  color: #00bcd4;
-  font-weight: bold;
+    color: #00bcd4;
+    font-weight: bold;
 }
-/* ---------- HAMBURGER MENU ---------- */
+
+/* --- HAMBURGER MENU (Desktop Hidden, Mobile Visible) --- */
 .menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
+    display: none; /* Hidden by default on desktop */
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
 }
 
+/*
+  Crucial: When the menu is NOT active on mobile,
+  we explicitly hide the nav links.
+  When it IS active, the JS will add 'active' class,
+  and the @media (max-width: 768px) rule will apply.
+*/
 #nav-links {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-  transition: max-height 0.3s ease;
+    display: flex; /* Default desktop display */
+    gap: 25px;
+    list-style: none;
+    transition: max-height 0.3s ease;
 }
 
-/* Hero Section */
+
+/* --- Hero Section --- */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 90vh;
-  background: linear-gradient(to right, #FF6600 0%, #FF6600 50%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background: linear-gradient(to right, #FF6600 0%, #FF6600 50%, #ffffff 100%);
+    /* Add padding for mobile in case the container doesn't cover it */
+    padding: 40px 20px; /* Added for mobile safety */
 }
 
 .hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .hero-left img {
-  width: 320px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-left img:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .hero-right h3 {
-  font-size: 1.5rem;
-  color: #555;
+    font-size: 1.5rem;
+    color: #555;
 }
 
 .hero-right h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #222;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #222;
 }
 
 .hero-right h2 {
-  font-size: 2rem;
-  margin: 10px 0;
+    font-size: 2rem;
+    margin: 10px 0;
 }
 
 .hero-right h2 span {
-  color: hsl(236, 100%, 52%);
-  font-weight: bold;
+    color: hsl(236, 100%, 52%); /* Consider changing this color for consistency */
+    font-weight: bold;
 }
 
 .hero-right p {
-  margin-top: 15px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #444;
-  max-width: 500px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    max-width: 500px;
 }
 
-/* About Section */
+/* --- About Section --- */
+#about {
+    padding: 60px 20px; /* Ensure sufficient padding on all screens */
+}
+
 #about h2 {
-  font-size: 2.5rem;
-  color: #222;
-  text-align: center;
-  margin-bottom: 10px;
+    font-size: 2.5rem;
+    color: #222;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #about h2::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #FF6600;
-  margin: 10px auto 40px auto;
-  border-radius: 2px;
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #FF6600;
+    margin: 10px auto 40px auto;
+    border-radius: 2px;
 }
 
 #about p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #444;
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 /* --- SKILLS SECTION --- */
 #skills {
-  text-align: center;
-  padding: 60px 20px;
-  background: #f9f9f9;
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
 }
 
 #skills h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #222;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #222;
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  max-width: 900px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .skill {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
 }
 
 .skill:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .skill img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 .skill p {
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-/* Progress bar container */
 .bar {
-  width: 100%;
-  height: 14px;
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
+    width: 100%;
+    height: 14px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* Progress bar fill */
 .progress {
-  height: 100%;
-  background: linear-gradient(90deg, #ff6600, #ff9800);
-  text-align: right;
-  padding-right: 5px;
-  font-size: 12px;
-  color: #fff;
-  line-height: 14px;
-  border-radius: 10px 0 0 10px;
-  transition: width 1s ease;   /* smooth animation */
-  width: 0; /* start hidden */
+    height: 100%;
+    background: linear-gradient(90deg, #ff6600, #ff9800);
+    text-align: right;
+    padding-right: 5px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 14px;
+    border-radius: 10px 0 0 10px;
+    transition: width 1s ease;
+    width: 0; /* JS will set this */
 }
-/* ------------------ CONTACT SECTION STYLES ------------------ */
+
+/* --- Projects Section --- */
+#projects {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.project-card .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #FF6600, #ff9800);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.project-card .btn:hover {
+    background: linear-gradient(135deg, #e05c00, #e67e22);
+}
+
+.project-image {
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .btn {
+    padding: 10px 20px;
+    background: #ff6600;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.overlay .btn:hover {
+    background: #e05c00;
+}
+
+/* --- Services Section --- */
+#services {
+    padding: 60px 20px; /* Ensure sufficient padding */
+    text-align: center;
+    background: #f9f9f9;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+#services ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    display: flex; /* Arrange services horizontally on desktop */
+    justify-content: center;
+    gap: 40px; /* Space between service items */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+#services li {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px; /* Ensure a minimum width */
+    margin-bottom: 20px; /* Space when wrapped */
+}
+
+#services li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+
+/* --- Contact Section --- */
 #contact {
     background: #f5f7fa;
     padding: 80px 20px;
-    text-align: center; /* Ensures <h2> is centered */
-    /* Remove 'display: flex' from #contact here! We use it on the wrapper below. */
+    text-align: center;
 }
 
-/* This is the new wrapper for the left/right content */
 .contact-content-wrapper {
-    max-width: 1100px; 
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
-    
-    /* Default: Stacked on small screens */
     display: flex;
-    flex-direction: column; 
-    gap: 40px; /* Space between form and icons when stacked */
+    flex-direction: column; /* Stacks by default for mobile */
+    gap: 40px;
 }
 
 #contact h2 {
     font-size: 2.5rem;
     color: #222;
-    text-align: center; 
-    /* REDUCED MARGIN for less space below the heading (20px -> 10px) */
-    margin-bottom: 10px; 
+    text-align: center;
+    margin-bottom: 10px;
 }
-/* Existing Form and Input Styles (kept mostly the same, adjusted for width) */
+
 #contact form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%; /* Full width on mobile/default */
+    width: 100%;
 }
 
 #contact input,
 #contact textarea {
     width: 100%;
-    /* REDUCED vertical padding (14px -> 10px) */
-    padding: 10px 16px; 
+    padding: 10px 16px;
     border: 1px solid #ddd;
     border-radius: 12px;
     font-size: 1rem;
-    /* CHANGED background to white */
-    background: #fff; 
+    background: #fff;
     transition: 0.3s ease;
 }
-/* ... (rest of your input/button styles follow here, unchanged) ... */
 
 #contact textarea { min-height: 140px; resize: none; }
 
 #contact button {
-    /* CHANGED TO ORANGE THEME COLOR */
     background: linear-gradient(135deg, #FF6600, #ff9800);
     color: #fff;
     padding: 14px;
@@ -298,18 +458,14 @@ body {
 
 #contact button:hover {
     transform: translateY(-2px);
-    /* Hover state for the new orange color */
-    background: linear-gradient(135deg, #e05c00, #e67e22); 
+    background: linear-gradient(135deg, #e05c00, #e67e22);
 }
 
-
-/* Social Links (Stacked on mobile, centered) */
 .social-links {
     display: flex;
-    justify-content: center; /* Center them on mobile/default */
+    justify-content: center;
     gap: 20px;
-    /* On mobile, they are full width and centered */
-    width: 100%; 
+    width: 100%;
 }
 
 .social-links a {
@@ -322,238 +478,216 @@ body {
     opacity: 0.8;
 }
 
-.social-links .linkedin { color: #0077b5; } 
-.social-links .github { color: #000; } 
-.social-links .instagram { color: #e4405f; } 
-.social-links .facebook { color: #1877f2; } 
-.social-links .whatsapp { color: #25d366; } 
+.social-links .linkedin { color: #0077b5; }
+.social-links .github { color: #000; }
+.social-links .instagram { color: #e4405f; }
+.social-links .facebook { color: #1877f2; }
+.social-links .whatsapp { color: #25d366; }
 
-/* ------------------ LEFT/RIGHT LAYOUT MEDIA QUERY (768px+) ------------------ */
-
-@media (min-width: 768px) {
-    
-    /* 1. Make the wrapper display the form and icons side-by-side */
-    .contact-content-wrapper {
-        flex-direction: row; /* Switch from column (stacked) to row (side-by-side) */
-        justify-content: space-between;
-        align-items: flex-start; /* Align content to the top */
-        gap: 40px; /* Space between the two columns */
-        padding-top: 20px; /* Add some space below the main H2 */
-    }
-
-    /* 2. Style the form (the LEFT side) */
-    #contact form {
-        width: 65%; /* Form takes up most of the space on the left */
-        text-align: left; 
-    }
-
-    /* 3. Style the social links (the RIGHT side) */
-    .social-links {
-        width: 35%; /* Icons take the remaining space on the right */
-        justify-content: flex-end; /* Push icons to the right edge */
-        flex-direction: column; /* Stack the icons vertically */
-        align-items: flex-end; /* Align the stack to the right */
-        gap: 30px; /* Increased vertical gap */
-        
-        /* Ensure each icon link is full-width to control its right-alignment */
-        padding-top: 10px; /* Small adjustment for vertical alignment with form */
-    }
-/* Styling for the Contact Form Card */
 .contact-card {
-    /* REDUCED PADDING for a smaller size (30px 25px -> 25px 20px) */
-    padding: 25px 20px; 
-    border-radius: 16px; 
-    background: #ffffff; /* Keeping a crisp white background */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Slightly better shadow */
-    
+    padding: 25px 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Button (The Main Color Change) */
-#contact button {
-    /* CHANGED to your portfolio's orange theme color */
-    background: linear-gradient(135deg, #FF6600, #ff9800);
-    /* ... other button styles ... */
+.cv-download {
+    margin-top: 40px; /* Add space above CV download section */
+    font-size: 1.1rem;
+    color: #555;
 }
 
-#contact button:hover {
-    /* Hover state for the new orange color */
-    background: linear-gradient(135deg, #e05c00, #e67e22); 
-}
-/* Projects Section */
-#projects {
-  padding: 60px 20px;
-  background: #fff;
-  text-align: center;
-}
-
-#projects h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #222;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.project-card {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.project-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.project-card p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-/* Buttons */
-.project-card .btn {
-  display: inline-block;
-  padding: 8px 15px;
-  background: linear-gradient(135deg, #FF6600, #ff9800);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s;
-  font-weight: bold;
-}
-
-.project-card .btn:hover {
-  background: linear-gradient(135deg, #e05c00, #e67e22);
-}
-
-/* --- Overlay Hover Effect for Project Images --- */
-.project-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.project-image {
-  position: relative;
-}
-
-.project-image img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.1); /* zoom effect */
-}
-
-.overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
-}
-
-.project-card:hover .overlay {
-  opacity: 1;
-}
-
-.overlay .btn {
-  padding: 10px 20px;
-  background: #ff6600;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.overlay .btn:hover {
-  background: #e05c00;
-}
 .cv-download .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);  /* pink → orange gradient */
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Consider updating this color for consistency */
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px; /* Space between text and button */
 }
 
 .cv-download .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-/* --- RESPONSIVE FIXES FOR MOBILE --- */
+
+/* --- Responsive Fixes for Smaller Screens (Max-width 768px) --- */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+    /* --- Top Navigation --- */
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
 
-  /* 👇 Add this here */
-  .top-nav ul {
-    display: none;
-  }
+    /* Hide nav links by default on mobile */
+    #nav-links {
+        display: none; /* Hide by default */
+        width: 100%;
+        flex-direction: column;
+        background: #111;
+        max-height: 0; /* Important for animation */
+        overflow: hidden;
+        text-align: center;
+        padding: 0;
+    }
 
-  .top-nav {
-    flex-wrap: wrap;
-  }
+    /* Show nav links when 'active' class is added by JS */
+    #nav-links.active {
+        display: flex; /* Show when active */
+        max-height: 400px; /* Sufficient height to show all links */
+        padding: 15px 0;
+    }
 
-  #nav-links {
-    width: 100%;
-    flex-direction: column;
+    .top-nav {
+        padding: 15px 20px; /* Adjust padding for smaller screens */
+    }
+
+    #nav-links li {
+        margin: 10px 0;
+    }
+
+    #nav-links a {
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+
+    /* --- Hero Section --- */
+    .hero-container {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+        gap: 30px; /* Reduce gap slightly */
+    }
+
+    .hero-left img {
+        width: 250px; /* Smaller image on mobile */
+        height: 250px;
+        margin-bottom: 20px; /* Add space below image */
+    }
+
+    .hero-right h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero-right h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-right h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-right p {
+        font-size: 1rem;
+        max-width: none; /* Allow paragraph to take full width */
+        padding: 0 10px; /* Add slight horizontal padding */
+    }
+
+    /* --- About Section --- */
+    #about p {
+        font-size: 1rem;
+    }
+
+    /* --- Skills Grid --- */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column on small phones */
+        gap: 20px; /* Reduced gap */
+        padding: 0 10px; /* Add horizontal padding to the grid itself */
+    }
+
+    /* --- Projects Grid --- */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column on small phones */
+        gap: 20px; /* Reduced gap */
+        padding: 0 10px; /* Add horizontal padding to the grid itself */
+    }
+
+    /* --- Services Section --- */
+    #services ul {
+        flex-direction: column; /* Stack services vertically */
+        gap: 20px; /* Space between stacked items */
+        align-items: center; /* Center them */
+    }
+
+    #services li {
+        width: 80%; /* Make service cards take more width */
+        max-width: 300px; /* Prevent them from becoming too wide */
+    }
+
+    /* --- Contact Section --- */
+    .contact-content-wrapper {
+        flex-direction: column; /* Ensure stacking on mobile */
+        gap: 30px; /* Adjust gap */
+    }
+
+    .social-links {
+        flex-direction: row; /* Keep social icons horizontal for now */
+        flex-wrap: wrap; /* Allow wrapping if too many icons */
+        justify-content: center; /* Center icons */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .cv-download {
+        margin-top: 30px; /* Adjust spacing */
+    }
+
+}
+
+
+/* --- Desktop/Tablet Layout (Min-width 769px) --- */
+@media (min-width: 769px) {
+    /* Hide the hamburger menu on larger screens */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Ensure nav links are always visible on larger screens */
+    #nav-links {
+        display: flex !important; /* Force display flex for desktop */
+        max-height: none !important; /* Remove max-height restriction */
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+
+    /* Restore desktop hero layout */
+    .hero-container {
+        flex-direction: row;
+        text-align: left; /* Align text left on desktop */
+    }
+
+    /* Restore desktop contact layout */
+    .contact-content-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+        padding-top: 20px;
+    }
+
+    #contact form {
+        width: 65%;
+        text-align: left;
+    }
+
+    .social-links {
+        width: 35%;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 30px;
+        padding-top: 10px;
+    }
+}
+
+/* --- FOOTER --- */
+footer {
     background: #111;
-    max-height: 0;
-    overflow: hidden;
+    color: #fff;
     text-align: center;
-    padding: 0;
-  }
-
-  #nav-links.active {
-    max-height: 400px;
-    padding: 15px 0;
-  }
-
-  #nav-links li {
-    margin: 10px 0;
-  }
-
-  #nav-links a {
-    display: block;
-    padding: 10px;
-    font-size: 1.1rem;
-  }
+    padding: 20px;
+    font-size: 0.9rem;
 }
