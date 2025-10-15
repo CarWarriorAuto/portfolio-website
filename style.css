@@ -690,4 +690,32 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
+}/* --- GALLERY SPECIFIC STYLES (For graphic-design-gallery.html) --- */
+
+/* Ensures the gallery section has proper spacing at the top */
+.gallery-section {
+    padding-top: 100px; /* More padding than other sections to account for fixed header */
+    padding-bottom: 60px;
+    min-height: 100vh; /* Ensures the page is at least full screen height */
+}
+
+/* Specific styling for the H2 title on the gallery page */
+.gallery-section h2 {
+    font-size: 2.5rem;
+    color: #222;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Optional: To make the gallery projects look slightly different/more prominent on their own page */
+.gallery-section .project-card {
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+/* Responsive adjustment for the gallery section header on mobile */
+@media (max-width: 768px) {
+    .gallery-section {
+        padding-top: 90px; /* Adjust for mobile header height */
+    }
 }
