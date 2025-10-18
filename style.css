@@ -514,52 +514,80 @@ body {
 }
 /* --- ACCORDION & SERVICE IMAGE STYLES --- */
 
+/* The Service Card (Sets the 3:4 portrait size) */
 .service-card {
-    /* Ensure the card is easy to click, this overrides the style above */
+    background: #fff; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+    transition: transform 0.3s ease;
     cursor: pointer; 
     position: relative; 
     overflow: hidden; 
-    min-height: 150px; 
-    padding: 30px; /* Reset padding for proper card appearance */
+    
+    /* 💥 CRITICAL: Set size to 3:4 portrait ratio 💥 */
+    padding: 0; /* REMOVE all internal padding */
+    min-height: unset; /* Remove minimum height constraint */
+    height: auto;
+    aspect-ratio: 3 / 4; /* Creates the tall, vertical shape */
 }
 
+/* The Clickable Title/Header - Layered Overlay */
 .service-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee; /* Separator line */
-    margin-bottom: 0;
-    position: relative; /* For z-index to work */
-    z-index: 2; /* Keep title/icon above the image overlay */
-    background: transparent;
+    
+    /* Positioning over the image */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Contrast and styling */
+    background: rgba(0, 0, 0, 0.75); /* Dark, semi-transparent overlay */
+    color: #fff; /* White text for contrast */
+    padding: 15px; /* Add padding here */
+    border-radius: 12px 12px 0 0; 
+    border-bottom: none; /* Remove separator line */
+    
+    z-index: 3; /* Above the image */
 }
 
+/* Ensure the title text is white/light for contrast */
 .service-header h3 {
-    margin-bottom: 0; /* Remove bottom margin conflict */
-    color: #FF6600; 
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle shadow for contrast */
+    margin-bottom: 0; 
+    color: #fff; /* White text */
+    text-shadow: none; 
 }
 
-/* HIDE THE CONTENT BY DEFAULT */
+/* HIDE THE CONTENT BY DEFAULT - Layered Overlay */
 .service-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out, padding-top 0.5s ease-out;
-    position: relative;
-    z-index: 2; /* Keep content above the image */
+    /* Updated transition to target 'padding' */
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out; 
+    
+    /* Positioning over the image */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Slightly darker background for content */
+    color: #fff; /* White text for contrast */
+    
+    z-index: 3;
 }
 
 /* SHOW THE CONTENT when 'active' class is on the parent card */
 .service-card.active .service-content {
-    max-height: 500px; /* Tall enough to show content */
-    padding-top: 15px;
+    max-height: 800px; /* Tall enough to show content */
+    padding: 15px; /* Use padding here */
 }
 
 /* Rotate the icon when the card is open */
 .toggle-icon {
     font-size: 1.2rem;
-    color: #FF6600;
+    color: #fff; /* Icon should be white/light */
     transition: transform 0.3s ease;
 }
 
@@ -569,17 +597,64 @@ body {
 
 /* List Item Styling for better readability */
 .service-card ul {
-    list-style: none; /* Remove default bullet */
+    list-style: none;
     padding-left: 0;
 }
 
 .service-card ul li::before {
-    content: "•"; /* Use a standard bullet symbol */
+    content: "•";
     color: #FF6600; /* Set the bullet point color to your brand color */
     font-weight: bold;
     display: inline-block; 
-    width: 1em; /* Space for the bullet */
-    margin-left: -1em; /* Pull it back to the left */
+    width: 1em; 
+    margin-left: -1em;
+}
+
+/* Ensure paragraph and list item text is white */
+.service-content p, .service-content ul li {
+    color: #fff;
+}
+
+
+/* --- SERVICE CARD BACKGROUND IMAGES --- */
+
+/* Create a container for the image and ensure proper sizing */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 🚀 CRITICAL: Sizing for full image visibility in the 3:4 container 🚀 */
+    background-size: contain; /* Scales the entire image to fit */
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    opacity: 1; /* Make image fully visible */
+    transition: opacity 0.5s ease;
+    z-index: 1; /* Place behind the text */
+}
+
+/* Remove or update the hover style */
+.service-card:hover::before {
+    opacity: 1; /* Keep it fully visible on hover */
+}
+
+/* 1. Web Development Card Image */
+.service-card[data-service-id="web"]::before {
+    background-image: url('images/webdevelopment.jpg'); 
+}
+
+/* 2. Brand & Visual Design Card Image */
+.service-card[data-service-id="design"]::before {
+    background-image: url('images/visualdesign.jpg');
+}
+
+/* 3. IT Support & Optimization Card Image */
+.service-card[data-service-id="it"]::before {
+    background-image: url('images/itsupport.jpg');
 }
 
 /* --- SERVICE CARD BACKGROUND IMAGES --- */
