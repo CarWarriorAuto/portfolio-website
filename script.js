@@ -39,8 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(bar);
     });
 
-   // =======================================================
+    // =======================================================
     // 3. CONTACT FORM SUBMISSION (AJAX/Fetch)
+    // This allows the form to clear and prevents the redirect
     // =======================================================
     const contactForm = document.querySelector('.contact-card');
 
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
 
             const formData = new FormData(contactForm);
-            // Convert form data to a plain JavaScript object
             const data = Object.fromEntries(formData.entries());
 
             try {
@@ -78,16 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert('A network error occurred. Please check your connection.');
             }
         });
-        // =======================================================
-    // 4. ACTIVE NAVIGATION HIGHLIGHTER
+    } // <-- *** THE MISSING CLOSING BRACE IS HERE ***
+
+    // =======================================================
+    // 4. ACTIVE NAVIGATION HIGHLIGHTER (Now correctly placed outside the if block)
     // =======================================================
     const sections = document.querySelectorAll('section[id]');
-    const navLinksList = document.querySelectorAll('.nav-links a');
+    const navLinksList = document.querySelectorAll('.top-nav ul li a'); // Adjusted selector
 
     // Create a new observer for the sections
     const navObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // This condition prevents highlighting if the user is scrolling rapidly past a section.
+            // It ensures the section is the main one currently visible.
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.3) { 
                 const currentSectionId = entry.target.id;
 
                 // Remove 'active' class from all links
@@ -96,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 // Add 'active' class to the link that matches the current section
-                const activeLink = document.querySelector(`.nav-links a[href="#${currentSectionId}"]`);
+                const activeLink = document.querySelector(`.top-nav ul li a[href="#${currentSectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
                 }
@@ -111,4 +115,5 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(section => {
         navObserver.observe(section);
     });
-    }
+    
+}); // END of document.addEventListener("DOMContentLoaded")

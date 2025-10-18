@@ -61,8 +61,9 @@ body {
 }
 
 .top-nav ul li a.active {
-    color: #00bcd4;
+    color: #FF6600; /* Changed to your primary brand color */
     font-weight: bold;
+    border-bottom: 3px solid #FF6600; /* New visual indicator */
 }
 
 /* --- HAMBURGER MENU (Desktop Hidden, Mobile Visible) --- */
