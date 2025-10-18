@@ -192,14 +192,17 @@
     
     <div class="contact-content-wrapper">
         
-        <form class="contact-card"> 
-            <h2>Contact Me</h2> 
-            
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+       <form class="contact-card" action="https://formspree.io/f/xeorndbr" method="POST"> 
+    <h2>Contact Me</h2> 
+    
+    <input type="text" name="name" placeholder="Your Name" required>
+    
+    <input type="email" name="email" placeholder="Your Email" required>
+    
+    <textarea name="message" placeholder="Your Message"></textarea>
+    
+    <button type="submit">Send Message</button>
+</form>
 
     <div class="social-links">
     <a href="https://www.linkedin.com/in/eric-muthuri-bb346b257/" class="linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
