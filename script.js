@@ -39,15 +39,76 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(bar);
     });
 
+   // =======================================================
+    // 3. CONTACT FORM SUBMISSION (AJAX/Fetch)
     // =======================================================
-    // 3. CONTACT FORM ALERT (Cleaned Up/Removed)
-    // =======================================================
-    // You should remove the old alert code entirely, as it will prevent 
-    // real email submission once you integrate Formspree or a backend.
-    /*
-    document.querySelector("form button").onclick = function() {
-        alert("Thank you for reaching out, Erico will reply soon!");
-    };
-    */
+    const contactForm = document.querySelector('.contact-card');
 
-}); // END of document.addEventListener("DOMContentLoaded")
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (event) {
+            // 1. Prevent default HTML submission (stops page redirect)
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+            // Convert form data to a plain JavaScript object
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // 2. Send data to Formspree in the background
+                const response = await fetch('https://formspree.io/f/xeorndbr', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // 3. Handle response
+                if (response.ok) {
+                    // Success: Clear the form fields and show message
+                    contactForm.reset();
+                    alert('Message sent successfully! Thank you for reaching out.');
+                } else {
+                    // Error response
+                    alert('There was an error sending your message. Please try again later.');
+                }
+
+            } catch (error) {
+                // Network error
+                alert('A network error occurred. Please check your connection.');
+            }
+        });
+        // =======================================================
+    // 4. ACTIVE NAVIGATION HIGHLIGHTER
+    // =======================================================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksList = document.querySelectorAll('.nav-links a');
+
+    // Create a new observer for the sections
+    const navObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSectionId = entry.target.id;
+
+                // Remove 'active' class from all links
+                navLinksList.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add 'active' class to the link that matches the current section
+                const activeLink = document.querySelector(`.nav-links a[href="#${currentSectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, { 
+        rootMargin: '-30% 0px -30% 0px', // Helps highlight when section is roughly in the middle
+        threshold: 0.3 // Trigger when 30% of section is visible
+    });
+
+    // Start observing each section
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+    }
