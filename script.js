@@ -117,3 +117,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
 }); // END of document.addEventListener("DOMContentLoaded")
+document.addEventListener('DOMContentLoaded', () => {
+    // =======================================================
+    // SERVICE CARD ACCORDION FUNCTIONALITY
+    // =======================================================
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    serviceCards.forEach(card => {
+        const header = card.querySelector('.service-header');
+        
+        header.addEventListener('click', () => {
+            card.classList.toggle('active');
+
+            // Optional: Close all other open cards
+            serviceCards.forEach(otherCard => {
+                if (otherCard !== card && otherCard.classList.contains('active')) {
+                    otherCard.classList.remove('active');
+                }
+            });
+        });
+    });
+});
