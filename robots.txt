@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://carwarriorauto.github.io/portfolio-website/sitemap.xml
